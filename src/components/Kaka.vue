@@ -12,16 +12,15 @@
   <script>
   
   export default {
+    props: {
+        kakas: {
+            type: Array,
+            required: true
+        }
+    },
     data () {
         return {
-            kakas: [
-                {name: 'Sukri', speciality: 'Vue Components', show: false},
-                {name: 'Seno', speciality: 'HTML Wizardry', show: false},
-                {name: 'Rope', speciality: 'Click Events', show: false},
-                {name: 'Bonar', speciality: 'Conditionals', show: false},
-                {name: 'Luci', speciality: 'Webpack', show: false},
-                {name: 'Jess', speciality: 'Data Diggin', show: false}
-            ]
+            
         }
     }
   }
