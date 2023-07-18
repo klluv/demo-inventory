@@ -1,25 +1,32 @@
 <template>
   <div>
-      <h1>{{ title }}</h1>
-      <tests></tests>
+    <app-header></app-header>
+    <app-kaka></app-kaka>
+    <app-footer></app-footer>
   </div>
 </template>
 
 <script>
-// Imports
-import Tests from './tests.vue';
+import Header from './components/Header.vue';
+import Footer from './components/Footer.vue';  
+import Kaka from './components/Kaka.vue';   
 
 export default {
   components: {
-      'tests': Tests
+    'app-header':Header,
+    'app-footer':Footer,
+    'app-kaka':Kaka
   },
   data () {
       return {
-        title: 'Tests App'
+       
       }
   }
 }
 </script>
 
 <style>
+
+
+
 </style>
