@@ -1,16 +1,26 @@
 <template>
     <footer>
-        <p>{{ copyright }}</p>
+        <p>{{ copyright }} {{ title }}</p>
     </footer>
   </template>
   
-  <script>
-  
+  <script>  
+  import { bus } from '../main';
   export default {
+    props: {
+      title: {
+        type: String
+      }
+    },
     data () {
         return {
          copyright:'Copyright 2023 Vue KAKA'
         }
+    },
+    created(){
+      bus.$on('titleChanger', (data) => {
+        this.title = data;
+      })
     }
   }
   </script>
