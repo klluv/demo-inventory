@@ -1,32 +1,43 @@
 <template>
   <div>
-    <app-header></app-header>
-    <app-kaka></app-kaka>
-    <app-footer></app-footer>
+    <form-helper>
+      <div slot="form-header">
+        <h3>Title from the form</h3>
+        <p>paragraph from the from</p>
+      </div>
+      <div slot="form-field">
+        <input type="text" placeholder="name" required>
+        <input type="password" placeholder="password" required>
+      </div>
+      <div slot="form-control">
+        <button @click="formSubmit">Submit here</button>
+      </div>
+    </form-helper>
   </div>
 </template>
 
 <script>
-import Header from './components/Header.vue';
-import Footer from './components/Footer.vue';  
-import Kaka from './components/Kaka.vue';   
+import formHelper from './components/formHelper.vue';
 
 export default {
   components: {
-    'app-header':Header,
-    'app-footer':Footer,
-    'app-kaka':Kaka
+    'form-helper': formHelper
   },
-  data () {
+  data() {
       return {
-       
+        title: 'title is change'
       }
+  },
+  methods: {
+    
   }
 }
 </script>
 
 <style>
-
-
+body{
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
 
 </style>
