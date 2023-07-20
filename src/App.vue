@@ -1,8 +1,8 @@
 <template>
   <div>
-    <app-header></app-header>
-    <app-kaka></app-kaka>
-    <app-footer></app-footer>
+    <app-header v-bind:title="title"></app-header>
+    <app-kaka v-bind:kakas="kakas"></app-kaka>
+    <app-footer v-bind:copyright="copyright"></app-footer>
   </div>
 </template>
 
@@ -19,7 +19,15 @@ export default {
   },
   data () {
       return {
-       
+        kakas: [
+                {name: 'Sukri', speciality: 'Vue Components', show: false},
+                {name: 'Seno', speciality: 'HTML Wizardry', show: false},
+                {name: 'Rope', speciality: 'Click Events', show: false},
+                {name: 'Bonar', speciality: 'Conditionals', show: false},
+                {name: 'Luci', speciality: 'Webpack', show: false},
+                {name: 'Jess', speciality: 'Data Diggin', show: false}
+            ],
+            title: "Vue Kaka"
       }
   }
 }
