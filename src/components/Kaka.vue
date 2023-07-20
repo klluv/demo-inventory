@@ -6,23 +6,47 @@
             <h3 v-show="kaka.show">{{ kaka.speciality }}</h3>
             </li>
         </ul>
+        <button @click="deleteKaka">Delete Kaka</button>
     </div>
 </template>
   
   <script>
   
   export default {
+    props: {
+        kakas: {
+            type: Array,
+            required: true
+        }
+    },
     data () {
         return {
-            kakas: [
-                {name: 'Sukri', speciality: 'Vue Components', show: false},
-                {name: 'Seno', speciality: 'HTML Wizardry', show: false},
-                {name: 'Rope', speciality: 'Click Events', show: false},
-                {name: 'Bonar', speciality: 'Conditionals', show: false},
-                {name: 'Luci', speciality: 'Webpack', show: false},
-                {name: 'Jess', speciality: 'Data Diggin', show: false}
-            ]
+            
         }
+    },
+    methods: {
+        deleteKaka: function() {
+            this.kakas.pop()
+        }
+    },
+    //lifecyle hooks
+    beforeCreate(){
+        alert("beforeCreate");
+    },
+    created(){
+        alert("Created");
+    },
+    beforeMount() {
+        alert("beforeMount");
+    },
+    mounted(){
+        alert("mounted");
+    },
+    beforeUpdate(){
+        alert("beforeUpdtae");
+    },
+    updated(){
+        alert("updated");
     }
   }
   </script>
