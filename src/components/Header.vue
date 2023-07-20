@@ -1,16 +1,26 @@
 <template>
     <header>
-        <h1>{{ title }}</h1>
+        <h1 @click="changeTitle">{{ title }}</h1>
     </header>
 
 </template>
 
 <script>
 export default {
+    props: {
+        title: {
+            type: String
+        }
+    },
   data () {
       return {
        title: 'vuejs has begin'
       }
+  },
+  methods: {
+    changeTitle: function() {
+        this.$emit('changeTitle', 'Vue title Changed');
+    }
   }
 }
 </script>
