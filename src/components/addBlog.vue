@@ -1,7 +1,7 @@
 <template>
     <div id="add-blog">
         <h2>Menambah blog baru</h2>
-        <form>
+        <form v-if="!terkirim">
             <label>Judul blog: </label>
             <input type="text" v-model.trim="blog.title" required />
             <label>Konten blog: </label>
@@ -20,7 +20,11 @@
             <select v-model="blog.author">
                 <option v-for="author in authors">{{ author }}</option>
             </select>
+            <button @click.prevent="post">tambah blog</button>
         </form>
+        <div v-if="terkirim">
+            <h3>Blogmu sudah terkirim!</h3>
+        </div>
         <div id="preview">
             <h3>Preview blog</h3>
             <p>Judul Blog: {{ blog.title }}</p>
@@ -47,11 +51,21 @@ export default {
                 categories: [],
                 author: ''
             },
-            authors:['Sukri Stankovic','Naga Bonar','Rope Villian']
+            authors:['Sukri Stankovic','Naga Bonar','Rope Villian'],
+            terkirim: false,
         }
     },
     methods: {
-
+        post: function() {
+            this.$http.post('https://jsonplaceholder.typicode.com/posts', {
+                title:this.blog.title,
+                body: this.blog.content,
+                userId: 1
+            }).then(function(data){
+                console.log(data);
+                this.terkirim = true;
+            });
+        }
     }
 }
 </script>
