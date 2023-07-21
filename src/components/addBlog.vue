@@ -8,14 +8,18 @@
             <textarea v-model="blog.content" ></textarea>
             <div id="checkbox">
                 <label>Sukri</label>
-                <input type="checkbox" value="sukri.a" v-model="blog.categories" >
+                <input type="checkbox" value="Sukri" v-model="blog.categories" >
                 <label>Bonar</label>
-                <input type="checkbox" value="bonar.a" v-model="blog.categories" >
+                <input type="checkbox" value="Bonar" v-model="blog.categories" >
                 <label>Rope</label>
-                <input type="checkbox" value="rope.a" v-model="blog.categories" >
+                <input type="checkbox" value="Rope" v-model="blog.categories" >
                 <label>Ryzen</label>
-                <input type="checkbox" value="ryzen.a" v-model="blog.categories" >
+                <input type="checkbox" value="Ryzen" v-model="blog.categories" >
             </div>
+            <label>Author: </label>
+            <select v-model="blog.author">
+                <option v-for="author in authors">{{ author }}</option>
+            </select>
         </form>
         <div id="preview">
             <h3>Preview blog</h3>
@@ -26,6 +30,7 @@
             <ul>
                 <li v-for="kategori in blog.categories">{{ kategori }}</li>
             </ul>
+            <p>author: {{ blog.author }}</p>
         </div>
     </div>
 </template>
@@ -39,8 +44,10 @@ export default {
             blog: {
                 title: '',
                 content:'',
-                categories: []
-            }
+                categories: [],
+                author: ''
+            },
+            authors:['Sukri Stankovic','Naga Bonar','Rope Villian']
         }
     },
     methods: {
