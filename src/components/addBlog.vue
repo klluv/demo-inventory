@@ -6,12 +6,26 @@
             <input type="text" v-model.trim="blog.title" required />
             <label>Konten blog: </label>
             <textarea v-model="blog.content" ></textarea>
+            <div id="checkbox">
+                <label>Sukri</label>
+                <input type="checkbox" value="sukri.a" v-model="blog.categories" >
+                <label>Bonar</label>
+                <input type="checkbox" value="bonar.a" v-model="blog.categories" >
+                <label>Rope</label>
+                <input type="checkbox" value="rope.a" v-model="blog.categories" >
+                <label>Ryzen</label>
+                <input type="checkbox" value="ryzen.a" v-model="blog.categories" >
+            </div>
         </form>
         <div id="preview">
             <h3>Preview blog</h3>
             <p>Judul Blog: {{ blog.title }}</p>
             <p>Konten Blog: </p>
             <p>{{ blog.content }} </p>
+            <p>Kategori Blog: </p>
+            <ul>
+                <li v-for="kategori in blog.categories">{{ kategori }}</li>
+            </ul>
         </div>
     </div>
 </template>
@@ -24,7 +38,8 @@ export default {
         return {
             blog: {
                 title: '',
-                content:''
+                content:'',
+                categories: []
             }
         }
     },
@@ -58,5 +73,13 @@ input[type="text"], textarea{
 }
 h2{
     margin-top: 10px;
+}
+#checkbox input{
+    display: inline-block;
+    margin-right: 8px;
+}
+#checkbox label{
+    display: inline-block;
+
 }
 </style>
