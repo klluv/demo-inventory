@@ -1,32 +1,39 @@
 <template>
-  <div>
-    <app-header></app-header>
-    <app-kaka></app-kaka>
-    <app-footer></app-footer>
-  </div>
+    <div>
+        <keep-alive>
+            <component v-bind:is="component"></component>
+        </keep-alive>
+        <button v-on:click="component = 'form-one'">Show form one</button>
+        <button v-on:click="component = 'form-two'">Show form two</button>
+    </div>
 </template>
 
 <script>
-import Header from './components/Header.vue';
-import Footer from './components/Footer.vue';  
-import Kaka from './components/Kaka.vue';   
+// Imports
+import formOne from './components/formOne.vue';
+import formTwo from './components/formTwo.vue';
 
 export default {
-  components: {
-    'app-header':Header,
-    'app-footer':Footer,
-    'app-kaka':Kaka
-  },
-  data () {
-      return {
-       
-      }
-  }
+    components: {
+        'form-one': formOne,
+        'form-two': formTwo
+    },
+    data () {
+        return {
+            component: 'form-one'
+        }
+    },
+    methods: {
+        handleSubmit: function(){
+            alert('thanks for submitting');
+        }
+    }
 }
 </script>
 
 <style>
-
-
-
+body{
+    margin: 0;
+    font-family: 'Nunito SemiBold';
+}
 </style>
