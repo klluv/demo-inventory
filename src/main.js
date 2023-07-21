@@ -1,8 +1,9 @@
 import Vue from 'vue'
+import VueResource from 'vue-resource'
 import App from './App.vue'
-//import Ninjas from './Ninjas.vue'
 
-//Vue.component('ninjas', Ninjas);
+// Use vue-resource package
+Vue.use(VueResource);
 
 new Vue({
   el: '#app',
